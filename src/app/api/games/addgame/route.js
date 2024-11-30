@@ -1,10 +1,9 @@
-import pool from '../../lib/db';
+import pool from '../../../lib/db';
 
 export async function POST(req) {
   try {
     const { game_name } = await req.json();
 
-    // Validate input
     if (!game_name) {
       return new Response(
         JSON.stringify({ message: 'Game name is required' }),
@@ -17,14 +16,14 @@ export async function POST(req) {
     const [result] = await pool.execute(query, [game_name]);
 
     return new Response(
-      JSON.stringify({ message: 'Game added successfully', gameId: result.insertId }),
+      JSON.stringify({ message: 'Game added successfully' }),
       { status: 201 }
     );
   } catch (error) {
     console.error('Error adding game:', error);
     return new Response(
-      JSON.stringify({ message: 'Error adding game', error: error.message }),
-      { status: 500 }
+      JSON.stringify({ message: 'Error adding game', error: error.sqlMessage }),
+      { status: 400 }
     );
   }
 }
