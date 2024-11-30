@@ -1,0 +1,229 @@
+'use client';  // This marks the component as a Client Component
+
+import { useState, useEffect } from 'react';
+// import GameSelection from '@/components/admin/ArcadeDropDown';
+import "./MainDashboard.css";
+
+const MainDashboard = props => {
+  // const [data, setData] = useState({
+  //   section1: 123,
+  //   section2: 456,
+  //   section3: 789,
+  // });
+
+  const handlePlayClick = () => {
+    console.log('Play button clicked');
+  };
+
+  useEffect(() => {
+    // Dynamically load the ApexCharts script
+    const loadScript = () => {
+      const script = document.createElement("script");
+      script.src = "https://cdn.jsdelivr.net/npm/apexcharts";
+      script.async = true;
+      script.onload = () => renderChart();
+      document.body.appendChild(script);
+    };
+
+    const renderChart = () => {
+      const chartConfig = {
+        series: [
+          {
+            name: "Sales",
+            data: [
+              { x: "Apr", y: 50, fillColor: "#6a0dad" },  // Purple
+              { x: "May", y: 40, fillColor: "#8a2be2" },  // Blue-violet
+              { x: "Jun", y: 300, fillColor: "#7b68ee" },  // Medium slate blue
+              { x: "Jul", y: 320, fillColor: "#4169e1" },  // Royal blue
+              { x: "Aug", y: 500, fillColor: "#0000ff" },  // Blue
+              { x: "Sep", y: 350, fillColor: "#4682b4" },  // Steel blue
+          ],
+          },
+        ],
+        chart: {
+          type: "bar",
+          height: 400,
+          toolbar: {
+            show: false,
+          },
+          borderRadius: 10, // Optional: Add rounded corners to the chart container
+    stroke: {
+      show: true,
+      width: 10, // Border thickness
+      colors: ['#2c509a'], // Border color (blue in this case)
+    },
+        },
+        title: {
+          show: "",
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        plotOptions: {
+          bar: {
+            columnWidth: "90%",
+            borderRadius: 39,
+          },
+        },
+        xaxis: {
+          axisTicks: {
+            show: false,
+          },
+          axisBorder: {
+            show: false,
+          },
+          labels: {
+            style: {
+              colors: "#616161",
+              fontSize: "12px",
+              fontFamily: "inherit",
+              fontWeight: 400,
+            },
+          },
+          categories: [
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+          ],
+        },
+        yaxis: {
+          labels: {
+            style: {
+              colors: "#616161",
+              fontSize: "12px",
+              fontFamily: "inherit",
+              fontWeight: 400,
+            },
+          },
+        },
+        grid: {
+          show: true,
+          borderColor: "#dddddd",
+          strokeDashArray: 5,
+          xaxis: {
+            lines: {
+              show: true,
+            },
+          },
+          padding: {
+            top: 5,
+            right: 20,
+          },
+        },
+        fill: {
+          opacity: 0.8,
+        },
+        tooltip: {
+          theme: "dark",
+        },
+      };
+      
+      const chart = new ApexCharts(document.querySelector("#bar-chart"), chartConfig);
+      
+      chart.render();
+      
+    };
+
+    loadScript();
+  }, []);
+
+  const handleImageClick = () => {
+    // Handle the image click event (e.g., navigate, open a modal, etc.)
+    console.log('Image clicked');
+    // Example: window.location.href = '/newPage'; // Redirect to a new page
+  };
+
+  return (
+    // body
+    // <div className="dashboard-container">
+      
+
+      <div className="dashboard-main">
+        {/* Clickable image button above the dashboard-right */}
+  <div className="image-button-container">
+    <button onClick={handleImageClick} className="image-button">
+      <img src={props.imgSrc} alt="Clickable Image" className="image-button-img" />
+    </button>
+  </div>
+
+      
+        <div className="dashboard-middle">
+          {/* Text Section Above the Graph */}
+          <div className="text-section">
+            <h3>ARCADE ID</h3>
+            <p>{props.middleText}</p>
+          </div>
+
+          {/* Graph Section */}
+          <div className="dashboard-graph">
+            <div className="relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md" style={{borderRadius: "54px",height: "441px"}}>
+              
+              <div className="pt-6 px-2 pb-0">
+                <div id="bar-chart"></div>
+              </div>
+            </div>
+          </div>
+          {/* Play button under the graph */}
+  <button onClick={handlePlayClick} className="play-button">Play</button>
+        </div>
+
+        {/* New Block Section under the Graph */}
+        <div className="dashboard-right">
+  {/* Text section above the data sections */}
+  <div className="text-section">
+    <h3>Venue Detail :</h3>
+    <p>{props.rightText}</p>
+  </div>
+
+  {/* Data sections container (arranged in a row) */}
+  <div className="data-sections-container">
+    <div className="data-section data_s1">
+      <h3>Coins</h3>
+      <p>{props.dataS1Text}</p>
+      <p>coins/day</p>
+    </div>
+    <div className="data-section data_s2">
+      <h3>Revenue</h3>
+      <p>{props.dataS2Text}</p>
+      <p>dollars/day</p>
+    </div>
+    <div className="data-section data_s3">
+      <h3>Hard Play</h3>
+      <p>{props.dataS3Text}</p>
+      <p>plays</p>
+    </div>
+  </div>
+
+  {/* New middle section with scrollable content */}
+  <div className="middle-section">
+    <h3>Managers Detail :</h3>
+    <div className="scrollable-content">
+      {/* Map over the items passed via props */}
+      {props.items.map((item, index) => (
+                <p key={index}>
+                  <span className="left-text">{item.leftText}</span>
+                  <span className="right-text">{item.rightText}</span>
+                </p>
+              ))}
+    </div>
+  </div>
+
+  {/* Block section below the middle section */}
+  <div className="block-section">
+  <div className="text">
+    <h3>API Key:</h3>
+    <p>{props.blockText}</p>
+  </div>
+  <div className="image">
+    <img src={props.blockImageSrc} alt="Image description" />
+  </div>
+</div>
+        </div>
+      </div>
+  );
+};
+
+export default MainDashboard;

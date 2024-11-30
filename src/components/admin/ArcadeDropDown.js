@@ -2,14 +2,7 @@
 
 import { useState } from 'react';
 
-export default function GameSelection() {
-  const gameOptions = [
-    { id: 1, name: 'Pac-Man' },
-    { id: 2, name: 'Space Invaders' },
-    { id: 3, name: 'Donkey Kong' },
-    { id: 4, name: 'Tetris' },
-    { id: 5, name: 'Super Mario Bros' },
-  ];
+export default function GameSelection({gameOptions}) {
 
   const [selectedGames, setSelectedGames] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
