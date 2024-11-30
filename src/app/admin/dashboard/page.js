@@ -95,7 +95,7 @@ function Page() {
          
           stroke: {
             show: true,
-            width: 10, // Border thickness
+            width: 6, // Border thickness
             colors: ['#2c509a'], // Border color (blue in this case)
           },
         },
@@ -156,10 +156,7 @@ function Page() {
               show: false,
             },
           },
-          padding: {
-            top: 5,
-            right: 20,
-          },
+    
         },
         fill: {
           opacity: 0.8,
@@ -184,23 +181,23 @@ function Page() {
 
 
   return (
-    <div>
-      <div className='grid xl:grid-cols-2 grid-cols-1 gap-x-5   mt-4'>
-        <div className='flex flex-col min-w-[850px] justify-center items-center'>
-          <div className='bg-custom-headpurple flex rounded-full items-center justify-between p-2 w-[800px]'>
+
+      <div className='flex xl:flex-row flex-col mt-5 justify-around items-center'>
+        {/* <div className='flex flex-col min-w-[850px] justify-center items-center'> */}
+        <div className='flex flex-col  justify-center items-center'>
+          <div className='bg-custom-headpurple flex rounded-full items-center justify-between p-2 xl:w-[800px] w-[250px] '>
             <h1 className='ml-3 font-bold text-xl'>Dashboard</h1>
             <div className='flex'>
               <Image src="/dash1.svg" height={100} width={100} />
-              <Image src="/dash2.svg" height={100} width={100} />
-              <Image src="/dash3.svg" height={100} width={100} />
+    
             </div>
           </div>
 
           {/* Cards */}
-          <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 my-10 pt-10 ml-[5px]  gap-y-20  max-h-[500px] overflow-y-auto ">
+          <div className="grid  md:grid-cols-3   sm:grid-cols-2 grid-cols-1 my-10 pt-10 sm:ml-[5px]  gap-y-20 xl:max-w-[850px] xl:max-h-[500px] overflow-y-auto ">
             {arcades.map((arcade) => (
-              <div key={arcade.id} className="  bg-white border border-black shadow-md rounded-xl w-[250px] mx-5 relative p-5 flex flex-col items-center justify-center gap-y-3 ">
-                <div className="z-[-1] bg-custom-headpurple px-3 flex items-center justify-around absolute top-[-35px] left-0 rounded-t-xl py-3">
+              <div key={arcade.id} className="bg-white border  border-black shadow-md rounded-xl w-[230px] mx-5 relative p-5 flex flex-col items-center justify-center gap-y-3 ">
+                <div className="z-[-1] bg-custom-headpurple px-3  flex items-center justify-around absolute top-[-35px] left-0 rounded-t-xl py-3">
                   <h1 className="font-mono text-sm">SH-KHI-A001</h1>
                   <div className="text-sm ml-3">ARCADE ID</div>
                 </div>
@@ -224,18 +221,17 @@ function Page() {
               </div>
             ))}
           </div>
+      </div>
 
 
-
-        </div>
-        <div className='ml-[200px] mt-5'>
+        <div className='w-[260px] sm:w-[450px] xl:w-[500px]'>
           <div>
-            <div>
-              <DashVenues />
+            <div >
+              <DashVenues className="" />
             </div>
 
-            <div className='bg-white border border-black rounded-xl p-3 m-2 md:w-[450px] xl:w-[400px] '>
-              <div className='grid grid-cols-3 p-2 gap-x-2 '>
+            <div className='bg-white border my-2 border-black rounded-xl  mt-2 w-[250px] sm:w-[450px] xl:w-[450px] '>
+              <div className='grid sm:grid-cols-3 grid-cols-1 sm:gap-y-auto gap-y-2   p-2 gap-x-2 '>
                 <div className='border border-gray-300 rounded-3xl shadow-md   flex flex-col items-center justify-center py-4 gap-y-3'>
                   <h1 className="text-xl">Hard Play</h1>
                   <div className='flex items-center '>
@@ -265,8 +261,8 @@ function Page() {
               
 
               {/* Chart */}
-              <div className="  mx-auto  dashboard-graph max-w-[400px] max-h-[350px] border border-black overflow-y-hidden">
-                <div className="relative flex flex-col bg-white bg-clip-border text-gray-700 shadow-md" style={{ height: "400px" }}>
+              <div className="  xl:mx-auto  dashboard-graph  max-w-[400px] max-h-[350px] overflow-y-hidden">
+                <div className="relative flex flex-col bg-white bg-clip-border text-gray-700 shadow-md">
 
                   <div className="pt-6 px-2 pb-0">
                     <div id="bar-chart"></div>
@@ -278,9 +274,12 @@ function Page() {
         </div>
       </div>
 
+// <div>
+//   Hello
+// </div>
 
 
-    </div>
+
   )
 }
 

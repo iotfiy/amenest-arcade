@@ -20,7 +20,7 @@ export default function DashVenues() {
   };
 
   return (
-    <div className="grid grid-cols-1 items-center gap-4 w-[300px]">
+    <div className="grid grid-cols-1 items-center  w-[250px] sm:w-[450px] xl:w-[400px] ">
       {/* Label */}
      
 
