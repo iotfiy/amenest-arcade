@@ -1,6 +1,6 @@
 {
-  "/ManagerSettingPanel/page": "app/ManagerSettingPanel/page.js",
   "/page": "app/page.js",
+  "/ManagerSettingPanel/page": "app/ManagerSettingPanel/page.js",
   "/signin/page": "app/signin/page.js",
   "/admin/mainDashboard/page": "app/admin/mainDashboard/page.js"
 }
