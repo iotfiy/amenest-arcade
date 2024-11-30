@@ -1,15 +1,15 @@
 'use client';  // This marks the component as a Client Component
 
 import { useState, useEffect } from 'react';
-import GameSelection from '@/components/admin/ArcadeDropDown';
+// import GameSelection from '@/components/admin/ArcadeDropDown';
 import "./MainDashboard.css";
 
-const MainDashboard = () => {
-  const [data, setData] = useState({
-    section1: 123,
-    section2: 456,
-    section3: 789,
-  });
+const MainDashboard = props => {
+  // const [data, setData] = useState({
+  //   section1: 123,
+  //   section2: 456,
+  //   section3: 789,
+  // });
 
   const handlePlayClick = () => {
     console.log('Play button clicked');
@@ -145,7 +145,7 @@ const MainDashboard = () => {
         {/* Clickable image button above the dashboard-right */}
   <div className="image-button-container">
     <button onClick={handleImageClick} className="image-button">
-      <img src="#" alt="Clickable Image" className="image-button-img" />
+      <img src={props.imgSrc} alt="Clickable Image" className="image-button-img" />
     </button>
   </div>
 
@@ -154,7 +154,7 @@ const MainDashboard = () => {
           {/* Text Section Above the Graph */}
           <div className="text-section">
             <h3>ARCADE ID</h3>
-            <p>RSA-93y2t3</p>
+            <p>{props.middleText}</p>
           </div>
 
           {/* Graph Section */}
@@ -167,7 +167,7 @@ const MainDashboard = () => {
             </div>
           </div>
           {/* Play button under the graph */}
-  <button className="play-button">Play</button>
+  <button onClick={handlePlayClick} className="play-button">Play</button>
         </div>
 
         {/* New Block Section under the Graph */}
@@ -175,24 +175,24 @@ const MainDashboard = () => {
   {/* Text section above the data sections */}
   <div className="text-section">
     <h3>Venue Detail :</h3>
-    <p>Quick summary of the current dashboard data and stats.</p>
+    <p>{props.rightText}</p>
   </div>
 
   {/* Data sections container (arranged in a row) */}
   <div className="data-sections-container">
     <div className="data-section data_s1">
       <h3>Coins</h3>
-      <p>123</p>
+      <p>{props.dataS1Text}</p>
       <p>coins/day</p>
     </div>
     <div className="data-section data_s2">
       <h3>Revenue</h3>
-      <p>123</p>
+      <p>{props.dataS2Text}</p>
       <p>dollars/day</p>
     </div>
     <div className="data-section data_s3">
       <h3>Hard Play</h3>
-      <p>123</p>
+      <p>{props.dataS3Text}</p>
       <p>plays</p>
     </div>
   </div>
@@ -201,18 +201,13 @@ const MainDashboard = () => {
   <div className="middle-section">
     <h3>Managers Detail :</h3>
     <div className="scrollable-content">
-      {/* Multiple text blocks */}
-      <p>      <span className="left-text">Left Side Text</span>
-      <span className="right-text">Right Side Text</span></p>
-      <p>      <span className="left-text">Left Side Text</span>
-      <span className="right-text">Right Side Text</span></p>
-      <p>      <span className="left-text">Left Side Text</span>
-      <span className="right-text">Right Side Text</span></p>
-      <p>      <span className="left-text">Left Side Text</span>
-      <span className="right-text">Right Side Text</span></p>
-      <p>      <span className="left-text">Left Side Text</span>
-      <span className="right-text">Right Side Text</span></p>
-      {/* Add as many text blocks as needed */}
+      {/* Map over the items passed via props */}
+      {props.items.map((item, index) => (
+                <p key={index}>
+                  <span className="left-text">{item.leftText}</span>
+                  <span className="right-text">{item.rightText}</span>
+                </p>
+              ))}
     </div>
   </div>
 
@@ -220,10 +215,10 @@ const MainDashboard = () => {
   <div className="block-section">
   <div className="text">
     <h3>API Key:</h3>
-    <p>Here is some text in the block section.</p>
+    <p>{props.blockText}</p>
   </div>
   <div className="image">
-    <img src="#" alt="Image description" />
+    <img src={props.blockImageSrc} alt="Image description" />
   </div>
 </div>
         </div>
