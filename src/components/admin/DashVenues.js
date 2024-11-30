@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image';
 import { useState } from 'react';
 
 export default function DashVenues() {
@@ -20,7 +21,7 @@ export default function DashVenues() {
   };
 
   return (
-    <div className="grid grid-cols-1 items-center gap-4 w-[300px]">
+    <div className="grid grid-cols-1 items-center  w-[250px] sm:w-[450px] xl:w-[400px] ">
       {/* Label */}
      
 
@@ -31,10 +32,10 @@ export default function DashVenues() {
           className={` rounded-lg border border-black relative p-2 cursor-pointer bg-custom-headblue`}
         >
           <span className="text-white text-sm ">
-            {selectedGame || 'Select Venue'}
+            {selectedGame || 'Select By Venue'}
           </span>
           <svg
-            className="absolute top-3 right-1 w-4 h-4 text-custom-headblue bg-white rounded-md inline-block float-right"
+            className="absolute top-[5px] right-1 w-7 h-7 text-custom-headblue bg-white rounded-md inline-block float-right"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -47,6 +48,7 @@ export default function DashVenues() {
               d="M19 9l-7 7-7-7"
             ></path>
           </svg>
+          
         </div>
 
         {/* Dropdown Menu */}
