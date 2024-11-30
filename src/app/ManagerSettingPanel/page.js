@@ -8,6 +8,46 @@ import SignIn from '@/components/Manager/SigninManager';
 
 function Page() {
 
+  //example data
+  const [devices] = useState([
+    {
+      name: "Smart Light",
+      id: "12345-abcde-67890",
+      status: "on",
+      version: "v1.2.0",
+    },
+    {
+      name: "Smart Thermostat",
+      id: "23456-bcdef-78901",
+      status: "off",
+      version: "v2.0.1",
+    },
+    {
+      name: "Smart Door Lock",
+      id: "34567-cdefg-89012",
+      status: "on",
+      version: "v1.5.3",
+    },
+    {
+      name: "Smart Camera",
+      id: "45678-defgh-90123",
+      status: "off",
+      version: "v3.1.0",
+    },
+    {
+      name: "Smart Refrigerator",
+      id: "56789-efghi-01234",
+      status: "on",
+      version: "v4.0.0",
+    },
+    {
+      name: "Smart Speaker",
+      id: "67890-fghij-12345",
+      status: "off",
+      version: "v2.3.1",
+    },
+  ]);
+
   const [isSidebarVisible, setSidebarVisible] = useState(true);
 
   const toggleSidebar = () => {
@@ -28,7 +68,7 @@ function Page() {
       >
         <div className="h-full mt-[50px] px-3 py-4 overflow-y-auto dark:bg-gray-800">
           <div>
-            <DeviceList />
+            <DeviceList devices = { devices }/>
           </div>
           <div className={`fixed bottom-[8%]  ${isSidebarVisible ? "right-[50%] left-[50%]" : "right-[1%]"}`}>
           

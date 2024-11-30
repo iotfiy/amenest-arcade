@@ -1,7 +1,6 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
+  "/ManagerSettingPanel/page": "app/ManagerSettingPanel/page.js",
   "/page": "app/page.js",
   "/signin/page": "app/signin/page.js",
-  "/ManagerSettingPanel/page": "app/ManagerSettingPanel/page.js",
   "/admin/mainDashboard/page": "app/admin/mainDashboard/page.js"
 }
