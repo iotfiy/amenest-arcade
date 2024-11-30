@@ -8,6 +8,8 @@ import React, { useState } from 'react'
 
 function Page() {
 
+
+// example data
   const arcadeList = [
     { id: 1, name: 'Arcade 345-554' },
     { id: 2, name: 'Arcade 345-554' },
@@ -22,7 +24,15 @@ function Page() {
 ];
 
 
+const gameOptions = [
+    { id: 1, name: 'Pac-Man' },
+    { id: 2, name: 'Space Invaders' },
+    { id: 3, name: 'Donkey Kong' },
+    { id: 4, name: 'Tetris' },
+    { id: 5, name: 'Super Mario Bros' },
+  ];
 
+  const apiKey = "38943748fds32498h2348";
 
   const title="Arcade List";
 
@@ -79,14 +89,14 @@ function Page() {
     </div>
 
     {/* Third Field */}
+   <GameSelection gameOptions={gameOptions} />
    <GameSelection/>
 
    {/* Fourth */}
 {/* Fourth */}
 <CustomDropdownVenue/>
 
-  
-    {/* Buttons */}
+      {/* Buttons */}
     <div className="flex justify-end w-full space-x-4">
 
         <button
@@ -107,7 +117,7 @@ function Page() {
 <div className='bg-white border border-black rounded-xl p-5  mt-7 sm:w-[400px] w-[250px] '>
   <h1 className='text-custom-headblue font-bold '>API Key:</h1>
   <div className="flex items-center justify-between gap-x-2 sm:gap-x-5 lg:gap-x-10  ">
-  <p className='text-start sm:text-md text-sm'>38943748fds32498h2348</p>
+  <p className='text-start sm:text-md text-sm'>{apiKey}</p>
   <Image src="/QrCode.svg" height={80} width={80} className='sm:w-[80px] sm:h-[80px] h-[40px] w-[40px]'/>
   </div>
 

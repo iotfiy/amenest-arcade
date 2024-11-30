@@ -2,7 +2,7 @@ import React from 'react'
 import CustomDropdown from './CustomSelect'
 import Image from 'next/image'
 
-function Welcome() {
+function Welcome(props) {
   return (
     <>
     <div className="flex flex-col my-10 justify-center items-center px-2">
@@ -22,7 +22,7 @@ function Welcome() {
             Pay
         </button>
         <p className='text-sm font-light mt-[15px]  '>
-            Unique ID: 2256-227-567-1
+            Unique ID: {props.unique_id}
         </p>
     </div>
        </>

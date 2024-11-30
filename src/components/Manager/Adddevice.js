@@ -26,10 +26,15 @@ export default function AddDeviceSpeedDial() {
   };
 
   const handleSave = () => {
-    console.log('Device ID:', deviceDetails.id);
-    console.log('Device PORT:', deviceDetails.port);
-    alert(`Device ID: ${deviceDetails.id} Device port: ${deviceDetails.port}`);
-    handleClosePopover();
+    if (deviceDetails.id && deviceDetails.port) {
+      onSaveDevice(deviceDetails); // Send the device details to the parent or save to database
+      handleClosePopover();
+      console.log('Device ID:', deviceDetails.id);
+      console.log('Device PORT:', deviceDetails.port);
+      alert(`Device ID: ${deviceDetails.id} Device port: ${deviceDetails.port}`);
+    } else {
+      alert('Please fill in both fields');
+    }
   };
 
   const open = Boolean(anchorEl);
