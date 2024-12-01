@@ -87,20 +87,25 @@ const MainDashboard = props => {
         },
         grid: {
           show: true,
-          borderColor: "#dddddd",
-          strokeDashArray: 5,
+          borderColor: "#c0c0c0",
+          strokeDashArray: 0,
           xaxis: {
             lines: {
-              show: true,
+              show: false,
+            },
+          },
+          yaxis: {
+            lines: {
+              show: true, // Optionally keep or remove grid lines on the y-axis
             },
           },
           padding: {
-            top: 5,
-            right: 20,
+            top: 6,
+            right: 0,
           },
         },
         fill: {
-          opacity: 0.8,
+          opacity: 1,
         },
         tooltip: {
           theme: "dark",
