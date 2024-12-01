@@ -10,6 +10,8 @@ const showEditModal = (onConfirm, currentData) => {
         inputLabel: 'Edit your content',
         inputValue: currentData,
         showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
         confirmButtonText: 'Save',
         preConfirm: (value) => {
             if (!value) {
