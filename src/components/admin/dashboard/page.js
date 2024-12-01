@@ -67,6 +67,15 @@ function Page() {
   ];
 
 
+  const chartData = [
+    { x: "Apr", y: 50, fillColor: "#6a0dad" },
+    { x: "May", y: 40, fillColor: "#8a2be2" },
+    { x: "Jun", y: 300, fillColor: "#7b68ee" },
+    { x: "Jul", y: 320, fillColor: "#4169e1" },
+    { x: "Aug", y: 500, fillColor: "#0000ff" },
+    { x: "Sep", y: 350, fillColor: "#4682b4" },
+  ];
+
 
   useEffect(() => {
     // Dynamically load the ApexCharts script
@@ -83,14 +92,7 @@ function Page() {
         series: [
           {
             name: "Sales",
-            data: [
-              { x: "Apr", y: 50, fillColor: "#6a0dad" },  // Purple
-              { x: "May", y: 40, fillColor: "#8a2be2" },  // Blue-violet
-              { x: "Jun", y: 300, fillColor: "#7b68ee" },  // Medium slate blue
-              { x: "Jul", y: 320, fillColor: "#4169e1" },  // Royal blue
-              { x: "Aug", y: 500, fillColor: "#0000ff" },  // Blue
-              { x: "Sep", y: 350, fillColor: "#4682b4" },  // Steel blue
-            ],
+            chartData, // Pass data from parent
           },
         ],
         chart: {
@@ -133,14 +135,7 @@ function Page() {
               fontWeight: 400,
             },
           },
-          categories: [
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-          ],
+          categories: chartData.map((item) => item.x), // Dynamically set categories from x values
         },
         yaxis: {
           labels: {
@@ -181,7 +176,7 @@ function Page() {
     };
 
     loadScript();
-  }, []);
+  }, [chartData]);
 
 
 
