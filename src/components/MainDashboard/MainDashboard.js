@@ -30,14 +30,7 @@ const MainDashboard = props => {
         series: [
           {
             name: "Sales",
-            data: [
-              { x: "Apr", y: 50, fillColor: "#6a0dad" },  // Purple
-              { x: "May", y: 40, fillColor: "#8a2be2" },  // Blue-violet
-              { x: "Jun", y: 300, fillColor: "#7b68ee" },  // Medium slate blue
-              { x: "Jul", y: 320, fillColor: "#4169e1" },  // Royal blue
-              { x: "Aug", y: 500, fillColor: "#0000ff" },  // Blue
-              { x: "Sep", y: 350, fillColor: "#4682b4" },  // Steel blue
-          ],
+            data: props.chartData, // Pass data from parent
           },
         ],
         chart: {
@@ -80,14 +73,7 @@ const MainDashboard = props => {
               fontWeight: 400,
             },
           },
-          categories: [
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-          ],
+          categories: props.chartData.map((item) => item.x), // Dynamically set categories from x values
         },
         yaxis: {
           labels: {
@@ -101,20 +87,25 @@ const MainDashboard = props => {
         },
         grid: {
           show: true,
-          borderColor: "#dddddd",
-          strokeDashArray: 5,
+          borderColor: "#c0c0c0",
+          strokeDashArray: 0,
           xaxis: {
             lines: {
-              show: true,
+              show: false,
+            },
+          },
+          yaxis: {
+            lines: {
+              show: true, // Optionally keep or remove grid lines on the y-axis
             },
           },
           padding: {
-            top: 5,
-            right: 20,
+            top: 6,
+            right: 0,
           },
         },
         fill: {
-          opacity: 0.8,
+          opacity: 1,
         },
         tooltip: {
           theme: "dark",
@@ -128,7 +119,7 @@ const MainDashboard = props => {
     };
 
     loadScript();
-  }, []);
+  }, [props.chartData]);
 
   const handleImageClick = () => {
     // Handle the image click event (e.g., navigate, open a modal, etc.)

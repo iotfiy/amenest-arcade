@@ -2,7 +2,10 @@ import MainDashboard from '@/components/MainDashboard/MainDashboard'
 import React from 'react'
 
 // Example items for the list
-const items = [
+
+
+function Page() {
+  const items = [
   { leftText: "Left 1", rightText: "Right 1" },
   { leftText: "Left 2", rightText: "Right 2" },
   { leftText: "Left 3", rightText: "Right 3" },
@@ -11,11 +14,20 @@ const items = [
   { leftText: "Left 6", rightText: "Right 6" },
 ];
 
-function Page() {
+const chartData = [
+  { x: "Apr", y: 50, fillColor: "#6a0dad" },
+  { x: "May", y: 40, fillColor: "#8a2be2" },
+  { x: "Jun", y: 300, fillColor: "#7b68ee" },
+  { x: "Jul", y: 320, fillColor: "#4169e1" },
+  { x: "Aug", y: 500, fillColor: "#0000ff" },
+  { x: "Sep", y: 350, fillColor: "#4682b4" },
+];
+
   return (
     <div>
       <MainDashboard
         middleText="RSA-93y2t3"
+        chartData={chartData} // Pass data as prop
         imgSrc="#" // Image source for the image button
         rightText="This is some dynamic text for the right section."
         dataS1Text="123"
