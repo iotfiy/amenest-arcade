@@ -21,7 +21,13 @@ function Page() {
     { id: 10, name: 'Arcade 345-554' },
 ];
 
-
+const gameOptions = [
+    { id: 1, name: 'Mille Wyle' },
+    { id: 2, name: 'PlayGround' },
+    { id: 3, name: 'Hot Spot' },
+    { id: 4, name: 'Tetris' },
+    { id: 5, name: 'Suro Bros' },
+  ];
 
 
   const title="Arcade List";
@@ -79,11 +85,11 @@ function Page() {
     </div>
 
     {/* Third Field */}
-   <GameSelection/>
+   <GameSelection gameOptions = {gameOptions}/>
 
    {/* Fourth */}
 {/* Fourth */}
-<CustomDropdownVenue/>
+<CustomDropdownVenue gameOptions = {gameOptions}/>
 
   
     {/* Buttons */}
