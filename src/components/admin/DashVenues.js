@@ -3,14 +3,8 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-export default function DashVenues() {
-  const gameOptions = [
-    { id: 1, name: 'Mille Wyle' },
-    { id: 2, name: 'PlayGround' },
-    { id: 3, name: 'Hot Spot' },
-    { id: 4, name: 'Tetris' },
-    { id: 5, name: 'Suro Bros' },
-  ];
+export default function DashVenues({gameOptions}) {
+  
 
   const [selectedGame, setSelectedGame] = useState(null); // Only one selected game
   const [dropdownOpen, setDropdownOpen] = useState(false);

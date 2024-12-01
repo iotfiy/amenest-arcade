@@ -58,6 +58,13 @@ function Page() {
   ];
 
 
+  const gameOptions = [
+    { id: 1, name: 'Mille Wyle' },
+    { id: 2, name: 'PlayGround' },
+    { id: 3, name: 'Hot Spot' },
+    { id: 4, name: 'Tetris' },
+    { id: 5, name: 'Suro Bros' },
+  ];
 
 
 
@@ -229,7 +236,7 @@ function Page() {
         <div className='ml-[200px]'>
           <div>
             <div>
-              <DashVenues />
+              <DashVenues gameOptions = {gameOptions}/>
             </div>
 
             <div className='bg-white border border-black rounded-xl p-3 '>
