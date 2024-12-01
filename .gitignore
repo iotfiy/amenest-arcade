@@ -1,4 +1,5 @@
 /node_modules
 /.env.local
 /.next
-/package-lock.json 
+/package-lock.json
+/.DS_STORE
