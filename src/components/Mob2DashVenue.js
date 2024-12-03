@@ -3,23 +3,26 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-export default function DashVenues({gameOptions}) {
-  
+export default function Mob2DashVenue() {
+  const venueOptions = 
+  [
+    { id: 5, name: '3' },
+    { id: 5, name: '2' },
+    { id: 5, name: '1' },
+  ];
 
 
 
-
-
-  const [selectedGame, setSelectedGame] = useState(null); // Only one selected game
+  const [selectedVenue, setSelectedVenue] = useState(null); // Only one selected venue
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const handleGameSelection = (gameName) => {
-    setSelectedGame(gameName); // Set the selected game
+  const handleVenueSelection = (gameName) => {
+    setSelectedVenue(gameName); // Set the selected venue
     setDropdownOpen(false); // Close the dropdown once a selection is made
   };
 
   return (
-    <div className="grid grid-cols-1 items-center  w-[250px] sm:w-[450px] xl:w-[400px] ">
+    <div className="grid grid-cols-1 items-center  w-[120px] z-20 ">
       {/* Label */}
      
 
@@ -27,13 +30,13 @@ export default function DashVenues({gameOptions}) {
       <div className="relative col-span-2">
         <div
           onClick={() => setDropdownOpen(!dropdownOpen)}
-          className={` rounded-lg border border-black relative p-2 cursor-pointer bg-custom-headblue`}
+          className={` rounded-xl border  relative px-2 py-1 cursor-pointer bg-custom-headblue`}
         >
           <span className="text-white text-sm ">
-            {selectedGame || 'Select By Venue'}
+            {selectedVenue || 'Select Days '}
           </span>
           <svg
-            className="absolute top-[5px] right-1 w-7 h-7 text-custom-headblue bg-white rounded-md inline-block float-right"
+            className="absolute top-[6px] right-1 w-5 h-5 text-custom-headblue bg-white rounded-md inline-block float-right"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -42,7 +45,7 @@ export default function DashVenues({gameOptions}) {
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth="2"
+              strokeWidth="4"
               d="M19 9l-7 7-7-7"
             ></path>
           </svg>
@@ -51,20 +54,20 @@ export default function DashVenues({gameOptions}) {
 
         {/* Dropdown Menu */}
         {dropdownOpen && (
-          <div className="absolute z-10 mt-1 w-full bg-gray-200   border border-gray-300 rounded-md shadow-lg">
-            {gameOptions.map((game) => (
+          <div className="absolute z-10 mt-1 w-full bg-gray-200   border rounded-md shadow-lg">
+            {venueOptions.map((venue) => (
               <label
-                key={game.id}
+                key={venue.id}
                 className="block px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-custom-headblue "
               >
                 <input
                   type="radio"
-                  name="game" // All radio buttons with the same name will work as a group (only one can be selected)
+                  name="venue" // All radio buttons with the same name will work as a group (only one can be selected)
                   className="mr-2 absolute opacity-0 pointer-events-none  " 
-                  checked={selectedGame === game.name}
-                  onChange={() => handleGameSelection(game.name)} // Handle game selection
+                  checked={selectedVenue === venue.name}
+                  onChange={() => handleVenueSelection(venue.name)} // Handle venue selection
                 />
-                {game.name}
+                {venue.name}
               </label>
             ))}
           </div>

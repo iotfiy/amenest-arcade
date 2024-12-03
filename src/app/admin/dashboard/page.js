@@ -3,6 +3,7 @@ import DashVenues from '@/components/admin/DashVenues';
 import Image from 'next/image'
 import React, { useEffect } from 'react'
 import "./Chart.css"
+import CustomGraphDropDown from '@/components/admin/CustomGraphDropDown';
 
 function Page() {
 
@@ -185,13 +186,17 @@ function Page() {
   }, []);
 
 
+    
+  const handleTimeIntervalChange = (interval) => {
+    console.log(`Selected interval: ${interval}`);
+    // Update your chart data based on the selected interval
+  };
 
 
 
 
   return (
-
-      <div className='flex xl:flex-row flex-col mt-5 justify-around items-center bg-cover bg-center z-0  ' >
+    <div className='flex xl:flex-row flex-col mt-5 justify-around items-center bg-cover bg-center z-0  ' >
         {/* <div className='flex flex-col min-w-[850px] justify-center items-center'> */}
         <div className='flex flex-col  justify-center items-center'>
           <div className='bg-custom-headpurple flex rounded-full items-center justify-between p-2 xl:w-[800px] sm:w-full  xs:w-[320px] w-[250px] relative'>
@@ -226,7 +231,7 @@ function Page() {
             <h1> Arcade</h1>
             </div>
               <div className='flex items-center sm:justify-around justify-start'>
-                  <Image src="/ManagDash.svg" height={40} width={40} className='sm:w-[40px] sm:h-[40px] w-[20px] h-[20px]'/>
+                  <Image src="/GameStick.svg" height={40} width={40} className='sm:w-[40px] sm:h-[40px] w-[20px] h-[20px]'/>
                   <h1 className='text-2xl ml-2 font-bold text-gray-700'>08</h1>
               </div>
             </div>
@@ -236,7 +241,7 @@ function Page() {
             <h1> Venues</h1>
             </div>
               <div className='flex  items-center sm:justify-around justify-start'>
-                  <Image src="/ManagDash.svg" height={40} width={40} className='sm:w-[40px] sm:h-[40px] w-[20px] h-[20px]'/>
+                  <Image src="/Location.svg" height={40} width={40} className='sm:w-[30px] sm:h-[30px] w-[20px] h-[20px]'/>
                   <h1 className='text-2xl ml-2 font-bold text-gray-700'>08</h1>
               </div>
             </div>
@@ -275,7 +280,7 @@ function Page() {
       </div>
 
 
-        <div className='w-[260px] sm:w-[450px] xl:w-[500px]'>
+        <div className='w-[260px] sm:w-[450px] xl:w-[500px] xl:ml-3'>
           <div>
             <div >
               <DashVenues className="" />
@@ -312,10 +317,11 @@ function Page() {
               
 
               {/* Chart */}
-              <div className="  xl:mx-auto  dashboard-graph  max-w-[400px] max-h-[350px] overflow-y-hidden">
+              <div className="   xl:mx-auto  dashboard-graph  max-w-[400px] max-h-[350px] overflow-y-hidden">
                 <div className="relative flex flex-col bg-white bg-clip-border text-gray-700 shadow-md">
 
                   <div className="pt-6 px-2 pb-0">
+                  <CustomGraphDropDown className="" onTimeIntervalChange={handleTimeIntervalChange} />
                     <div id="bar-chart"></div>
                   </div>
                 </div>
