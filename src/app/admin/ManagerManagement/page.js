@@ -31,7 +31,7 @@ function Page() {
         <form className="sm:ml-[20px] flex flex-col items-center justify-center space-y-6 mx-2 w-[245px] sm:w-[400px] md:w-[500px] rounded-lg shadow-md bg-white p-6">
             {/* Form Title */}
     <h1 className="text-start w-full text-2xl font-bold text-custom-blue mb-4">
-        Add Game
+        Add Manager
     </h1>
 
     {/* First Field */}
@@ -84,18 +84,7 @@ function Page() {
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-    <div className="w-full max-w-xs border border-black  rounded-lg p-2">
+ <div className="w-full max-w-xs border border-black  rounded-lg p-2">
       {/* Filter Buttons */}
       <div className="flex sm:flex-row  gap-y-2 sm:gap-y-0 flex-col  sm:space-x-4 mb-4">
         <button className="px-4 py-2 text-white bg-gray-700 rounded-md text-sm">All</button>

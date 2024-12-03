@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-export default function DashVenues() {
+export default function MobDashVenues() {
   const gameOptions = [
     { id: 1, name: 'Mille Wyle' },
     { id: 2, name: 'PlayGround' },
@@ -11,8 +11,6 @@ export default function DashVenues() {
     { id: 4, name: 'Tetris' },
     { id: 5, name: 'Suro Bros' },
   ];
-
-
 
 
 
@@ -25,7 +23,7 @@ export default function DashVenues() {
   };
 
   return (
-    <div className="grid grid-cols-1 items-center  w-[250px] sm:w-[450px] xl:w-[400px] ">
+    <div className="grid grid-cols-1 items-center  w-[130px] z-20 ">
       {/* Label */}
      
 
@@ -33,13 +31,13 @@ export default function DashVenues() {
       <div className="relative col-span-2">
         <div
           onClick={() => setDropdownOpen(!dropdownOpen)}
-          className={` rounded-lg border border-black relative p-2 cursor-pointer bg-custom-headblue`}
+          className={` rounded-xl border  relative px-2 py-1 cursor-pointer bg-custom-headblue`}
         >
           <span className="text-white text-sm ">
-            {selectedGame || 'Select By Venue'}
+            {selectedGame || 'Search Venue'}
           </span>
           <svg
-            className="absolute top-[5px] right-1 w-7 h-7 text-custom-headblue bg-white rounded-md inline-block float-right"
+            className="absolute top-[6px] right-1 w-5 h-5 text-custom-headblue bg-white rounded-md inline-block float-right"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -48,7 +46,7 @@ export default function DashVenues() {
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth="2"
+              strokeWidth="4"
               d="M19 9l-7 7-7-7"
             ></path>
           </svg>
@@ -57,7 +55,7 @@ export default function DashVenues() {
 
         {/* Dropdown Menu */}
         {dropdownOpen && (
-          <div className="absolute z-10 mt-1 w-full bg-gray-200   border border-gray-300 rounded-md shadow-lg">
+          <div className="absolute z-10 mt-1 w-full bg-gray-200   border rounded-md shadow-lg">
             {gameOptions.map((game) => (
               <label
                 key={game.id}
