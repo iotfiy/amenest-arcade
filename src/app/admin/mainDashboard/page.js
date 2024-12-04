@@ -28,14 +28,14 @@ const chartData = [
       <MainDashboard
         middleText="RSA-93y2t3"
         chartData={chartData} // Pass data as prop
-        imgSrc="#" // Image source for the image button
+        imgSrc="/Manager.svg" // Image source for the image button
         rightText="This is some dynamic text for the right section."
         dataS1Text="123"
         dataS2Text="123"
         dataS3Text="123"
         items={items} // Passing the array of items to the Dashboard
         blockText="This is some dynamic text in the block section."
-        blockImageSrc="#" // Image source for the block section
+        blockImageSrc="/QrCode.svg" // Image source for the block section
     />
     </div>
   )
