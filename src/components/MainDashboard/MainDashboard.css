@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+
 /* General container styles */
 /*.dashboard-container*/
 body {
@@ -32,12 +35,12 @@ body {
 /* Main dashboard area (use grid layout here) */
 .dashboard-main {
   display: grid;
-  /*grid-template-rows: auto 1fr;  First row for the image, second row for content */
+  grid-template-rows: auto 1fr; /* First row for the image, second row for content */
   grid-template-columns: 50% 50%; /* Two columns: 1st column for the graph (flex-grow), 2nd column for the data sections */
   gap: 20px; /* Space between the grid items */
-  padding: 20px;
-  position: relative;
-  width: 100%;
+  padding-top: 20px;
+  position: fixed;
+  width: 93%;
 }
 
 /* Image button above both dashboard-middle and dashboard-right */
@@ -70,21 +73,24 @@ body {
 
 /* Dashboard middle (includes the graph and text section) */
 .dashboard-middle {
-  grid-row: 2 / 3; /* Second row */
+  grid-row: 1 / 3; /* Second row */
   grid-column: 1 / 2; /* First column */
   display: flex;
   flex-direction: column;
-  margin-right: 20px;  /* Space between graph and data panel */
+  /* margin-right: 20px;   Space between graph and data panel */
   padding: 20px;
 }
 
 .dashboard-middle > .text-section {
   margin-bottom: 15px;
+  margin-left: 33px;
 }
 
 .dashboard-middle > .text-section > h3 {
-  font-family: Fredoka;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 500; /* Medium weight */
   font-size: 24px;
+  letter-spacing: 0.1em;
 }
 
 .dashboard-middle > .text-section > p {
@@ -102,6 +108,41 @@ body {
   /*flex-grow: 1; Allow it to take up remaining space */
 }
 
+/* New section under the graph */
+.graph-info-section {
+  padding: 0 34px;
+  border-radius: 10px; /* Rounded corners */
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+/* Values container */
+.graph-values {
+  display: flex; /* Align items horizontally */
+  justify-content: space-between; /* Spread values evenly */
+  gap: 10px; /* Space between values */
+}
+
+/* Individual value buttons */
+.value-button {
+  background: none; /* Transparent background */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 5px 10px; /* Spacing around the text */
+  color: #333; /* Default text color */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for value buttons */
+.value-button:hover {
+  background-color: #948af8; /* Highlight color on hover */
+  color: white; /* Text color on hover */
+  border-color: #948af8; /* Match border color to background on hover */
+}
+
+
 /* Right side panel (now on the right of the graph) */
 .dashboard-right {
   grid-row: 2 / 3; /* Second row */
@@ -116,6 +157,7 @@ body {
   display: flex;
   flex-direction: row; /* Align items horizontally */
   gap: 20px; /* Space between data sections */
+  margin: 8px 5px;
 }
 
 /* Individual data sections */
@@ -123,37 +165,54 @@ body {
   flex: 1; /* Each data section takes up equal width */
   padding: 20px;
   background-color: #ffffff;
-  border-radius: 8px;
+  border-radius: 19px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: left;
   height: 149px;
-  font-family: Poppins;
+  /* font-family: sans-serif; */
+  /* font-family: 'Poppins', sans-serif; */
 }
 
 .data-section h3 {
   margin: 0;
   font-size: 24px;
-  color: #333;
+  color: #000;
 }
 
 .data-section p {
   font-size: 24px;
-  font-weight: bold;
-  color: #007bff;
+  color: #000;
   margin: 0;
+}
+
+.first_input{
+  font-weight: 600;
+  display: flex; /* Use flexbox to align the text and icon */
+  align-items: center; /* Vertically align text and icon */
+}
+
+.first_input > .icon {
+  margin-left: 8px; /* Add space between the text and the icon */
+  width: 33.33px;
+  height: 28.94px;
+  object-fit: contain; /* Ensure the icon fits properly */
+}
+
+.first_input > .play_icon{
+  height: 19px;
 }
 
 /* New middle section between data-section and block-section */
 .middle-section {
   padding: 20px;
   background-color: #f9f9f900;
-  height: 172px;
+  height: auto;
   overflow-y: hidden;
 }
 
 .middle-section h3 {
   font-size: 18px;
-  color: #333;
+  color: #000;
   font-weight: 600;
 }
 
@@ -161,7 +220,7 @@ body {
   font-size: 16px;
   color: #666;
   border: 1px solid #ddd; /* Light gray border */
-  padding: 10px; /* Add padding inside the border */
+  padding: 13px; /* Add padding inside the border */
   margin-bottom: 10px; /* Space between paragraphs */
   border-radius: 5px; /* Optional: rounded corners */
 }
@@ -173,7 +232,7 @@ body {
   padding: 10px;
   background-color: #f9f9f900;
   margin-top: 10px; /* Optional, adds space between heading and scrollable content */
-  height: 105px;
+  height: 137px;
 }
 
 .middle-section .scrollable-content::-webkit-scrollbar {
@@ -212,7 +271,7 @@ body {
 }
 
 .middle-section .scrollable-content p span {
-  font-size: 14px;
+  font-size: 20px;
   color: #333;
 }
 
@@ -247,7 +306,7 @@ body {
 }
 
 .block-section p {
-  color: #333;
+  color: #000;
   font-size: 16px;
 }
 
@@ -261,7 +320,7 @@ body {
   width: 100px; /* Set a fixed size for the image */
   height: 100px;
   background-color: #e0e0e0; /* Placeholder color in case the image is not loaded */
-  border-radius: 8px;
+  /* border-radius: 8px; */
   overflow: hidden; /* Ensure the image doesn't spill over the rounded corners */
 }
 
@@ -282,6 +341,27 @@ body {
   padding-top: 39px;
 }
 
+.tex_container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.qr_button {
+  align-self: flex-start; /* Align the button to the left */
+  margin-top: 0.5rem; /* Add spacing above the button */
+  background-color: #948af8;
+  color: white;
+  border: solid 1px #000;
+  border-radius: 19px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 2px 14px;
+}
+
+.qr-button:hover {
+  background-color: #0056b3;
+}
 
 /* Play button (now under the graph) */
 .play-button {
@@ -289,7 +369,8 @@ body {
   color: white;
   padding: 10px 20px;
   border: solid 1px #000;
-  border-radius: 30px;
+  /* border-radius: 30px; */
+  border-radius: 19px;
   cursor: pointer;
   font-size: 16px;
   margin-top: 20px;
@@ -378,7 +459,8 @@ p {
   display: flex; /* Use flexbox to arrange the heading and content side by side */
   align-items: center; /* Vertically align the content and heading */
   margin-bottom: 20px;
-  padding: 20px;
+  /* padding: 10px 20px; */
+  padding: 6px 20px;
   border-radius: 50px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -386,7 +468,7 @@ p {
 .dashboard-right > .text-section h3 {
   margin-right: 20px; /* Space between heading and content */
   font-size: 24px;
-  color: #333;
+  color: #000;
   font-weight: 600;
   font-stretch: normal;
 }
@@ -409,30 +491,94 @@ p {
   background-color: #fafee7;
 }
 
-/* Specific styles for responsive layout */
-@media (max-width: 768px) {
-  /*.dashboard-container*/
-  body {
-    flex-direction: column;
-  }
-
-  .dashboard-left {
-    width: 100%;
-    padding: 10px;
-  }
-
+/* Responsive adjustments */
+@media (max-width: 1024px) {
   .dashboard-main {
+    grid-template-columns: 1fr; /* Single column */
+    grid-template-rows: auto auto auto; /* Adjust rows */
+    gap: 15px; /* Reduce spacing */
     padding: 10px;
-    flex-direction: column;  /* Stack the graph and data sections on mobile */
-    font-family: Poppins;
+    position: relative;
   }
 
-  .dashboard-middle, .dashboard-right {
-    width: 100%;
-    margin-top: 10px;
+  .dashboard-middle {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+  }
+
+  .dashboard-right {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+  }
+}
+
+/* Adjust for tablets */
+@media (max-width: 768px) {
+  .image-button-container {
+    justify-content: center; /* Center the button */
   }
 
   .data-sections-container {
-    flex-direction: column;  /* Stack the data sections vertically on mobile */
+    flex-direction: column; /* Stack data sections vertically */
+    gap: 10px; /* Reduce spacing */
+  }
+
+  .data-section {
+    height: auto; /* Allow flexible height */
+    padding: 10px; /* Reduce padding */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .dashboard-graph {
+    height: 250px; /* Reduce graph height */
+    border-radius: 30px; /* Adjust border radius */
+  }
+
+  .play-button {
+    width: 100%;
+    margin: 10px auto; /* Center the button */
+  }
+}
+
+/* Adjust for small devices */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px; /* Reduce overall font size */
+  }
+
+  .image-button-container {
+    display: none; /* Hide the image button if needed */
+  }
+
+  .dashboard-main {
+    padding: 5px;
+    gap: 10px;
+  }
+
+  .data-sections-container {
+    gap: 5px;
+  }
+
+  .data-section h3,
+  .data-section p {
+    font-size: 12px; /* Adjust text size */
+  }
+
+  .middle-section {
+    padding: 10px;
+    height: auto; /* Flexible height for small devices */
+    overflow-y: auto; /* Ensure scrollability */
+  }
+
+  .block-section {
+    flex-direction: column; /* Stack text and image */
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .block-section .image {
+    width: 60px; /* Smaller image */
+    height: 60px;
   }
 }

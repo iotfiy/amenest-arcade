@@ -127,6 +127,21 @@ const MainDashboard = props => {
     // Example: window.location.href = '/newPage'; // Redirect to a new page
   };
 
+  document.querySelectorAll('.value-button').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const timeFrame = event.target.getAttribute('data-value');
+      console.log(`Time frame selected: ${timeFrame}`);
+      updateGraph(timeFrame);
+    });
+  });
+  
+  function updateGraph(timeFrame) {
+    // Logic to update the graph based on the selected time frame
+    console.log(`Graph updated for time frame: ${timeFrame}`);
+    // Example: Change the chart's data dynamically based on the time frame
+  }
+  
+
   return (
     // body
     // <div className="dashboard-container">
@@ -157,6 +172,19 @@ const MainDashboard = props => {
               </div>
             </div>
           </div>
+          
+          <div class="graph-info-section">
+    <div class="graph-values">
+      <button class="value-button" data-value="Live">Live</button>
+      <button class="value-button" data-value="1h">1h</button>
+      <button class="value-button" data-value="6h">6h</button>
+      <button class="value-button" data-value="12h">12h</button>
+      <button class="value-button" data-value="1d">1d</button>
+      <button class="value-button" data-value="7d">7d</button>
+      <button class="value-button" data-value="1m">1m</button>
+    </div>
+  </div>
+
           {/* Play button under the graph */}
   <button onClick={handlePlayClick} className="play-button">Play</button>
         </div>
@@ -173,17 +201,17 @@ const MainDashboard = props => {
   <div className="data-sections-container">
     <div className="data-section data_s1">
       <h3>Coins</h3>
-      <p>{props.dataS1Text}</p>
+      <p className='first_input'>{props.dataS1Text} <img src="/Star_Coin.png" alt="Icon" class="icon" /></p>
       <p>coins/day</p>
     </div>
     <div className="data-section data_s2">
       <h3>Revenue</h3>
-      <p>{props.dataS2Text}</p>
+      <p className='first_input'>{props.dataS2Text} <img src="/dollar_coin.png" alt="Icon" class="icon" /></p>
       <p>dollars/day</p>
     </div>
     <div className="data-section data_s3">
       <h3>Hard Play</h3>
-      <p>{props.dataS3Text}</p>
+      <p className='first_input'>{props.dataS3Text} <img src="/Play.png" alt="Icon" class="icon play_icon" /></p>
       <p>plays</p>
     </div>
   </div>
@@ -204,10 +232,16 @@ const MainDashboard = props => {
 
   {/* Block section below the middle section */}
   <div className="block-section">
+  <div className="text_container">
   <div className="text">
     <h3>API Key:</h3>
     <p>{props.blockText}</p>
   </div>
+  {/* Button placed directly below the text */}
+  <a href={props.blockImageSrc} download>
+      <button className="qr_button">Download QR</button>
+    </a>
+    </div>
   <div className="image">
     <img src={props.blockImageSrc} alt="Image description" />
   </div>

@@ -78,7 +78,7 @@ function Layout({ children }) {
                     onMouseLeave={handleMouseLeave}
                 >
 
-                    <div className="h-full mt-[50px] px-3 py-4 overflow-x-hidden dark:bg-gray-800">
+                    <div className="h-full mt-[50px] px-3 py-4 overflow-x-hidden">
                     
                             <div className="menu-list  mt-[100px]">
                                 <Image src="/IotIcon.svg" height={32} width={32} alt="IOTFIY ICON" className={`fixed top-[120px]`}/>
