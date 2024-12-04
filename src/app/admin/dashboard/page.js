@@ -204,6 +204,9 @@ function Page() {
 
 
   return (
+    <>
+    
+    <Image src="/signinbgImage.png" height={1000} width={1000} className='absolute  z-[-5] opacity-30 sm:block hidden' />
     <div className='flex xl:flex-row flex-col mt-5 justify-around items-center bg-cover bg-center z-0  ' >
         {/* <div className='flex flex-col min-w-[850px] justify-center items-center'> */}
         <div className='flex flex-col  justify-center items-center'>
@@ -258,7 +261,7 @@ function Page() {
           </div>
 
           {/* Cards */}
-          <div className=" grid  md:grid-cols-3   sm:grid-cols-2 grid-cols-1 my-10 pt-10 sm:ml-[5px]  gap-y-20 xl:max-w-[850px] xl:max-h-[500px] overflow-y-auto ">
+          {/* <div className=" grid  md:grid-cols-3   sm:grid-cols-2 grid-cols-1 my-10 pt-10 sm:ml-[5px]  gap-y-20 xl:max-w-[850px] xl:max-h-[500px] overflow-y-auto ">
             {arcades.map((arcade) => (
               <div key={arcade.id} className="bg-white border  border-black shadow-md rounded-xl w-[230px] mx-5 relative p-5 flex flex-col items-center justify-center gap-y-3 ">
                 <div className="z-[-1] bg-custom-headpurple px-3  flex items-center justify-around absolute top-[-35px] left-0 rounded-t-xl py-3">
@@ -285,7 +288,51 @@ function Page() {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
+
+
+
+<div
+  className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 my-10 pt-10 sm:ml-[5px] gap-y-20 xl:max-w-[850px] xl:max-h-[500px] overflow-y-auto custom-scrollbar"
+>
+  {arcades.map((arcade) => (
+    <div
+      key={arcade.id}
+      className="bg-white border border-black shadow-md rounded-xl w-[230px] mx-5 relative p-5 flex flex-col items-center justify-center gap-y-3"
+    >
+      <div className="z-[-1] bg-custom-headpurple px-3 flex items-center justify-around absolute top-[-35px] left-0 rounded-t-xl py-3">
+        <div
+          className={`h-[10px] w-[10px] ${
+            arcade.status === 'on' ? 'bg-[#82FFAC]' : 'bg-gray-300'
+          } rounded-full mr-2`}
+        />
+        <h1 className="font-mono text-sm text-white">SH-KHI-A001</h1>
+        <div className="text-sm ml-3 text-white font-mono">ARCADE ID</div>
+      </div>
+      <div className="flex items-center justify-center">
+        <h1 className="text-2xl">
+          Coins: <span className="font-bold">{arcade.coins}</span>
+        </h1>
+        <Image src="/coins.svg" className="m-2" height={43} width={33} />
+      </div>
+      <div>
+        <h1 className="text-2xl font-bold">
+          Revenue: <span className="font-bold">{arcade.revenue}</span>
+        </h1>
+      </div>
+      <button className="bg-custom-headpurple px-7 text-white border border-black py-1 rounded-xl">
+        Play
+      </button>
+      <div className="absolute bottom-2 right-2">
+        <Image src="/coinsBag.svg" height={59} width={59} className="" />
+      </div>
+    </div>
+  ))}
+</div>
+
+
+
+
       </div>
 
 
@@ -340,11 +387,9 @@ function Page() {
         </div>
       </div>
 
-// <div>
-//   Hello
-// </div>
 
-
+    </>
+  
 
   )
 }
