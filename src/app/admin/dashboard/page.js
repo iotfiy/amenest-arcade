@@ -12,49 +12,57 @@ function Page() {
       id: 1,
       name: "Arcade 1",
       coins: 200,
-      revenue: 5000
+      revenue: 5000,
+      status: "on",
     },
     {
       id: 2,
       name: "Arcade 2",
       coins: 350,
-      revenue: 7000
+      revenue: 7000,
+      status: "of",
     },
     {
       id: 3,
       name: "Arcade 3",
       coins: 120,
-      revenue: 3000
+      revenue: 3000,
+      status: "on",
     },
     {
       id: 4,
       name: "Arcade 4",
       coins: 450,
-      revenue: 9000
+      revenue: 9000,
+      status: "of",
     },
     {
       id: 5,
       name: "Arcade 1",
       coins: 200,
-      revenue: 5000
+      revenue: 5000,
+      status: "on",
     },
     {
       id: 6,
       name: "Arcade 2",
       coins: 350,
-      revenue: 7000
+      revenue: 7000,
+      status: "on",
     },
     {
       id: 7,
       name: "Arcade 3",
       coins: 120,
-      revenue: 3000
+      revenue: 3000,
+      status: "of",
     },
     {
       id: 8,
       name: "Arcade 4",
       coins: 450,
-      revenue: 9000
+      revenue: 9000,
+      status: "on",
     }
   ];
 
@@ -225,7 +233,7 @@ function Page() {
                   <h1 className='text-2xl ml-2 font-bold text-gray-700'>08</h1>
               </div>
             </div>
-            <div className="absolute xs:right-[105px] right-[80px] sm:right-[130px]   z-10  border-[7px] border-custom-headpurple rounded-full bg-purple-300   sm:pr-[60px] xs:pr-[10px] xs:px-5 xs:py-1 sm:px-5 p-3">
+            <div className="absolute xs:right-[105px] right-[80px] sm:right-[110px]   z-10  border-[7px] border-custom-headpurple rounded-full bg-purple-300   sm:pr-[60px] xs:pr-[10px] xs:px-5 xs:py-1 sm:px-5 p-3">
             <div className='text-sm text-start sm:flex items-center justify-left sm:space-x-1'> 
             <div className='' >No. Of  </div>
             <h1> Arcade</h1>
@@ -235,7 +243,7 @@ function Page() {
                   <h1 className='text-2xl ml-2 font-bold text-gray-700'>08</h1>
               </div>
             </div>
-            <div className="absolute xs:right-[210px]  sm:right-[250px]   right-[160px]  z-8  border-[7px] border-custom-headpurple rounded-full bg-purple-300  sm:pr-[110px] xs:pr-[10px] xs:px-5 xs:py-1 sm:px-5 px-4 p-3">
+            <div className="absolute xs:right-[210px]  sm:right-[200px]   right-[160px]  z-8  border-[7px] border-custom-headpurple rounded-full bg-purple-300  sm:pr-[110px] xs:pr-[10px] xs:px-5 xs:py-[6px] sm:px-5 px-4 p-3">
             <div className='text-sm text-start sm:flex items-center justify-left sm:space-x-1'> 
             <div className='' >No. Of  </div>
             <h1> Venues</h1>
@@ -254,6 +262,7 @@ function Page() {
             {arcades.map((arcade) => (
               <div key={arcade.id} className="bg-white border  border-black shadow-md rounded-xl w-[230px] mx-5 relative p-5 flex flex-col items-center justify-center gap-y-3 ">
                 <div className="z-[-1] bg-custom-headpurple px-3  flex items-center justify-around absolute top-[-35px] left-0 rounded-t-xl py-3">
+                <div className={`h-[10px] w-[10px] ${arcade.status === "on" ? 'bg-[#82FFAC]' : 'bg-gray-300 '}   rounded-full mr-2 `}/>
                   <h1 className="font-mono text-sm text-white ">SH-KHI-A001</h1>
                   <div className="text-sm ml-3  text-white font-mono ">ARCADE ID</div>
                 </div>
